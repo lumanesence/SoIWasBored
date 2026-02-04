@@ -1,2 +1,326 @@
-<title>Under Construction :)</title>
-<p>Under Construction :)</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So I Was Bored - Coming Soon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B9D;
+            --secondary: #FEC84D;
+            --accent: #4ECDC4;
+            --purple: #A855F7;
+            --bg: #FFF5F7;
+            --text: #2D3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Animated background blobs */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .blob1 {
+            width: 400px;
+            height: 400px;
+            background: var(--primary);
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .blob2 {
+            width: 350px;
+            height: 350px;
+            background: var(--secondary);
+            bottom: -100px;
+            right: -100px;
+            animation-delay: -7s;
+        }
+
+        .blob3 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            top: 50%;
+            right: 10%;
+            animation-delay: -14s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(50px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-30px, 30px) scale(0.9);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        /* Floating game icons */
+        .game-icon {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatIcon 15s infinite ease-in-out;
+            opacity: 0.2;
+        }
+
+        .icon1 { top: 15%; left: 10%; animation-delay: 0s; }
+        .icon2 { top: 25%; right: 15%; animation-delay: -3s; }
+        .icon3 { bottom: 20%; left: 15%; animation-delay: -6s; }
+        .icon4 { bottom: 30%; right: 10%; animation-delay: -9s; }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        .logo {
+            font-family: 'Fredoka', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--purple), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideDown 0.8s ease-out;
+            line-height: 1.2;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tagline {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: #666;
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .status-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            animation: scaleIn 0.6s ease-out 0.5s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent), var(--purple));
+            background-size: 200% 100%;
+            animation: gradientShift 3s linear infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .status-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .emoji {
+            font-size: 4rem;
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .status-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        .status-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .notify-form {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .notify-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--purple));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Fredoka', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+            text-decoration: none;
+        }
+
+        .notify-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+        }
+
+        .notify-btn:active {
+            transform: translateY(0);
+        }
+
+        .feature-hints {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .hint-badge {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(168, 85, 247, 0.1));
+            border: 1px solid rgba(255, 107, 157, 0.2);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text);
+            animation: fadeIn 0.6s ease-out both;
+        }
+
+        .hint-badge:nth-child(1) { animation-delay: 0.8s; }
+        .hint-badge:nth-child(2) { animation-delay: 1s; }
+        .hint-badge:nth-child(3) { animation-delay: 1.2s; }
+
+        @media (max-width: 640px) {
+            .status-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .hint-badge {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+
+    <div class="game-icon icon1">🎮</div>
+    <div class="game-icon icon2">🎯</div>
+    <div class="game-icon icon3">🎲</div>
+    <div class="game-icon icon4">🕹️</div>
+
+    <div class="container">
+        <h1 class="logo">So I Was Bored</h1>
+        <p class="tagline">Your next favorite way to kill time</p>
+
+        <div class="status-card">
+            <div class="status-header">
+                <div class="emoji">🚀</div>
+                <h2 class="status-title">Coming Soon!</h2>
+            </div>
+
+            <p class="status-text">
+                We're crafting something awesome for those moments when you just need something fun to do. 
+                Simple games, instant fun, zero boredom.
+            </p>
+
+            <div class="notify-form">
+                <a href="https://github.com/lumanesence/soiwasbored" target="_blank" rel="noopener noreferrer" class="notify-btn">
+                    Check Out The Project
+                </a>
+            </div>
+
+            <div class="feature-hints">
+                <div class="hint-badge">🎨 Creative Games</div>
+                <div class="hint-badge">⚡ Instant Play</div>
+                <div class="hint-badge">🎪 Always Fun</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
